@@ -9,9 +9,9 @@ export function Hero() {
     <section className="relative overflow-hidden py-20 lg:py-32">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl lg:max-w-4xl text-center">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-sm text-primary">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/60 px-4 py-1.5 text-sm text-white">
             <Sparkles className="h-4 w-4" />
-            <span>v1 in development</span>
+            <span>v1 now in development!</span>
           </div>
 
           <h1 className="mb-6 text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl xl:text-7xl">
