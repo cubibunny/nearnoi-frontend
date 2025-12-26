@@ -171,12 +171,11 @@ export default function PricingPage() {
               <div className="relative flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="flex items-center gap-4">
                   <div className="flex items-center justify-center w-16 h-16 rounded-full bg-primary/20 border border-primary/30">
-                    <div className="flex items-center justify-center w-full h-full">
-                      <svg viewBox="0 0 24 24" className="w-8 h-8 text-primary" fill="none" stroke="currentColor" strokeWidth="1.5">
-                        <circle cx="12" cy="12" r="11" />
-                        <text x="12" y="16" textAnchor="middle" fontSize="14" fontWeight="300" fill="currentColor">N</text>
-                      </svg>
-                    </div>
+                    <img 
+                      src="/near_icon.png" 
+                      alt="NEAR Protocol" 
+                      className="w-12 h-12"
+                    />
                   </div>
                   <div>
                     <h2 className="text-2xl font-bold text-foreground">NEAR Protocol</h2>
