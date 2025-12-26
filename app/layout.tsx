@@ -8,26 +8,8 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 const _spaceGrotesk = Space_Grotesk({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "NearNoi - AI Models Powered by NEAR Protocol",
-  description: "Access OpenAI and other AI models through our API. Pay seamlessly with NEAR cryptocurrency.",
-  generator: "v0.app",
-  icons: {
-    icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
-    ],
-    apple: "/apple-icon.png",
-  },
+  title: "NearNoi - Access leading AI models through NEAR",
+  description: "Access OpenAI and other AI models through our API. Pay seamlessly with NEAR Protocol.",
 }
 
 export default function RootLayout({
