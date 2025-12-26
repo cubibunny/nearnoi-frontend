@@ -245,14 +245,22 @@ export default function PricingPage() {
                       textModels.map((model) => (
                         <tr key={model.id} className="border-b border-border/20 hover:bg-primary/5 transition-colors">
                           <td className="px-6 py-4 font-medium text-foreground">{model.name}</td>
-                          <td className="px-6 py-4 text-right">
+                            <td className="px-6 py-4 text-right">
                             <span className="text-primary font-semibold">{model.inputPrice1M.toFixed(2)}</span>
-                            <span className="text-muted-foreground ml-1">Ⓝ</span>
-                          </td>
-                          <td className="px-6 py-4 text-right">
+                            <img 
+                              src="/near_icon.png" 
+                              alt="NEAR Protocol" 
+                              className="w-4 h-4 inline ml-1"
+                            />
+                            </td>
+                            <td className="px-6 py-4 text-right">
                             <span className="text-primary font-semibold">{model.outputPrice1M.toFixed(2)}</span>
-                            <span className="text-muted-foreground ml-1">Ⓝ</span>
-                          </td>
+                            <img 
+                              src="/near_icon.png" 
+                              alt="NEAR Protocol" 
+                              className="w-4 h-4 inline ml-1"
+                            />
+                            </td>
                         </tr>
                       ))
                     )}
@@ -292,7 +300,11 @@ export default function PricingPage() {
                           <td className="px-6 py-4 font-medium text-foreground">{model.name}</td>
                           <td className="px-6 py-4 text-right">
                             <span className="text-primary font-semibold">{model.pricePerImage.toFixed(2)}</span>
-                            <span className="text-muted-foreground ml-1">Ⓝ</span>
+                            <img 
+                              src="/near_icon.png" 
+                              alt="NEAR Protocol" 
+                              className="w-4 h-4 inline ml-1"
+                            />
                           </td>
                         </tr>
                       ))
@@ -322,7 +334,11 @@ export default function PricingPage() {
                   ) : webSearch ? (
                     <div className="text-4xl font-bold">
                       <span className="text-primary">{webSearch.pricePer1kCalls.toFixed(2)}</span>
-                      <span className="text-muted-foreground text-lg ml-1">Ⓝ</span>
+                        <img 
+                        src="/near_icon.png" 
+                        alt="NEAR Protocol" 
+                        className="w-5 h-5 inline ml-1"
+                        />
                     </div>
                   ) : (
                     <div className="text-2xl text-muted-foreground">--</div>
