@@ -1,8 +1,22 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { Header } from "@/components/header"
 
 export default function TermsPage() {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({
+        x: e.clientX,
+        y: e.clientY,
+      })
+    }
+
+    window.addEventListener("mousemove", handleMouseMove)
+    return () => window.removeEventListener("mousemove", handleMouseMove)
+  }, [])
   return (
     <div className="relative min-h-screen bg-background flex flex-col">
       <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.2)_0%,rgba(0,0,0,0.6)_50%,rgba(0,0,0,0.9)_100%)]" />
@@ -13,6 +27,15 @@ export default function TermsPage() {
           maskImage: "radial-gradient(ellipse at center, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, transparent 100%)",
           WebkitMaskImage:
             "radial-gradient(ellipse at center, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, transparent 100%)",
+        }}
+      />
+
+      <div
+        className="pointer-events-none fixed inset-0 bg-[linear-gradient(to_right,#4a5cb8_1px,transparent_1px),linear-gradient(to_bottom,#4a5cb8_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-0 transition-opacity duration-300"
+        style={{
+          maskImage: `radial-gradient(circle 300px at ${mousePosition.x}px ${mousePosition.y}px, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 40%, transparent 70%)`,
+          WebkitMaskImage: `radial-gradient(circle 300px at ${mousePosition.x}px ${mousePosition.y}px, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 40%, transparent 70%)`,
+          opacity: 1,
         }}
       />
 
