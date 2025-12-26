@@ -191,6 +191,7 @@ export default function PricingPage() {
                   <div>
                     <h2 className="text-2xl font-bold text-foreground">NEAR Protocol</h2>
                     <p className="text-muted-foreground">Current Market Price</p>
+                    <p className="text-sm text-muted-foreground mt-1">Token pricing is updated daily between 01:00 and 06:00 UTC+0 based on exchange rates<sup className="text-primary">3</sup></p>
                   </div>
                 </div>
                 <div className="text-center md:text-right">
@@ -385,8 +386,11 @@ export default function PricingPage() {
               <p className="text-muted-foreground">
                 <sup className="text-primary">2</sup> Web Search pricing is per 1,000 tool calls made to the web search functionality.
               </p>
+              <p className="text-muted-foreground">
+                <sup className="text-primary">3</sup> NEAR Protocol market price data is sourced from CoinGecko API. All token prices may updated daily between 01:00 and 06:00 UTC+0 and are changed to adjust for exchange rate fluctuations. When making a request you are charged based on the current price of tokens on that day.
+              </p>
               <p className="text-muted-foreground mt-6 pt-4 border-t border-border/20">
-                All prices are in NEAR (Ⓝ) tokens. Prices are automatically updated based on real-time NEAR/USD exchange rates.
+                All prices are in NEAR (Ⓝ) tokens.<br />Prices are updated between 01:00 and 06:00 UTC+0 based on real-time NEAR/USD exchange rates provided by CoinGecko.
               </p>
             </div>
           </div>
