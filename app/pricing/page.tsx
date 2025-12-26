@@ -240,13 +240,13 @@ export default function PricingPage() {
                   <div role="tablist" aria-label="Token unit toggle" className="inline-flex items-center rounded-full bg-card/20 p-1 border border-border/30">
                     <button
                       onClick={() => setTokenUnit("1K")}
-                      className={`px-3 py-1 text-sm rounded-full transition ${tokenUnit === "1K" ? "bg-primary text-card font-semibold" : "text-foreground/80 hover:bg-background/50"}`}
+                      className={`px-3 py-1 text-sm rounded-full transition ${tokenUnit === "1K" ? "bg-primary text-card font-semibold" : "text-foreground/80 hover:bg-background/50 hover:cursor-pointer"}`}
                     >
                       1K
                     </button>
                     <button
                       onClick={() => setTokenUnit("1M")}
-                      className={`px-3 py-1 text-sm rounded-full transition ${tokenUnit === "1M" ? "bg-primary text-card font-semibold" : "text-foreground/80 hover:bg-background/50"}`}
+                      className={`px-3 py-1 text-sm rounded-full transition ${tokenUnit === "1M" ? "bg-primary text-card font-semibold" : "text-foreground/80 hover:bg-background/50 hover:cursor-pointer"}`}
                     >
                       1M
                     </button>
