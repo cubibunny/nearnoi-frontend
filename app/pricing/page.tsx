@@ -389,6 +389,12 @@ export default function PricingPage() {
               <p className="text-muted-foreground">
                 <sup className="text-primary">3</sup> NEAR Protocol market price data is sourced from CoinGecko API. All token prices may updated daily between 01:00 and 06:00 UTC+0 and are changed to adjust for exchange rate fluctuations. When making a request you are charged based on the current price of tokens on that day.
               </p>
+              <p className="text-muted-foreground">
+                <sup className="text-primary">4</sup> Images with resolutions FHD and below through text models that use vision are currently free. Images above FHD will be charged at 0.03Ⓝ per image (4K resolution is max permitted size),with limits of 20 images per request. 
+              </p>
+              <p className="text-muted-foreground">
+                <sup className="text-primary">5</sup> All prices are subject to change without prior notice. Please refer to this page for the most up-to-date pricing information.
+              </p>
               <p className="text-muted-foreground mt-6 pt-4 border-t border-border/20">
                 All prices are in NEAR (Ⓝ) tokens.<br />Prices are updated between 01:00 and 06:00 UTC+0 based on real-time NEAR/USD exchange rates provided by CoinGecko.
               </p>
