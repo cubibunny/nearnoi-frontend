@@ -47,7 +47,7 @@ export function Header() {
             API
           </Link>
           <Link
-            href="https://nearnoi.dev/pricing"
+            href="/pricing"
             className="text-sm lg:text-base text-muted-foreground transition-colors hover:text-foreground"
           >
             Pricing
