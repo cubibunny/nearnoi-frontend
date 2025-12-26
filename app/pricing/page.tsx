@@ -56,6 +56,17 @@ export default function PricingPage() {
   const [webSearch, setWebSearch] = useState<WebSearchModel | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  // Token unit for text models table: '1K' or '1M' (default: 1K)
+  const [tokenUnit, setTokenUnit] = useState<'1K' | '1M'>('1K')
+
+  // Helper: format token price according to selected unit
+  const formatTokenPrice = (value1M: number) => {
+    if (tokenUnit === '1M') return value1M.toFixed(2)
+    // per 1k tokens
+    const per1k = value1M / 1000
+    // show more precision for small numbers
+    return per1k < 0.01 ? per1k.toFixed(4) : per1k.toFixed(4)
+  }
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -218,9 +229,28 @@ export default function PricingPage() {
 
             {/* Text Models Section */}
             <div className="space-y-6">
-              <div>
-                <h2 className="text-3xl font-bold text-foreground mb-2">Text Models</h2>
-                <p className="text-muted-foreground">Prices per 1M tokens in NEAR</p>
+              <div className="flex items-start justify-between">
+                <div>
+                  <h2 className="text-3xl font-bold text-foreground mb-2">Text Models</h2>
+                  <p className="text-muted-foreground">Prices per <span className="font-medium text-foreground">{tokenUnit} tokens</span> in NEAR</p>
+                </div>
+                <div className="ml-4 flex items-center gap-3">
+                  <div className="text-sm text-muted-foreground hidden sm:block">View prices</div>
+                  <div role="tablist" aria-label="Token unit toggle" className="inline-flex items-center rounded-full bg-card/20 p-1 border border-border/30">
+                    <button
+                      onClick={() => setTokenUnit("1K")}
+                      className={`px-3 py-1 text-sm rounded-full transition ${tokenUnit === "1K" ? "bg-primary text-card font-semibold" : "text-foreground/80 hover:bg-background/50"}`}
+                    >
+                      1K
+                    </button>
+                    <button
+                      onClick={() => setTokenUnit("1M")}
+                      className={`px-3 py-1 text-sm rounded-full transition ${tokenUnit === "1M" ? "bg-primary text-card font-semibold" : "text-foreground/80 hover:bg-background/50"}`}
+                    >
+                      1M
+                    </button>
+                  </div>
+                </div>
               </div>
 
               <div className="overflow-x-auto rounded-xl border border-border/40 bg-card/30 backdrop-blur-sm">
@@ -228,8 +258,8 @@ export default function PricingPage() {
                   <thead>
                     <tr className="border-b border-border/40 bg-background/30">
                       <th className="px-6 py-4 text-left font-semibold text-foreground">Model</th>
-                      <th className="px-6 py-4 text-right font-semibold text-foreground">Input <span className="text-muted-foreground font-normal text-sm">/1M tokens</span></th>
-                      <th className="px-6 py-4 text-right font-semibold text-foreground">Output <span className="text-muted-foreground font-normal text-sm">/1M tokens</span></th>
+                      <th className="px-6 py-4 text-right font-semibold text-foreground">Input <span className="text-muted-foreground font-normal text-sm">/{tokenUnit} tokens</span></th>
+                      <th className="px-6 py-4 text-right font-semibold text-foreground">Output <span className="text-muted-foreground font-normal text-sm">/{tokenUnit} tokens</span></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -246,7 +276,7 @@ export default function PricingPage() {
                         <tr key={model.id} className="border-b border-border/20 hover:bg-primary/5 transition-colors">
                           <td className="px-6 py-4 font-medium text-foreground">{model.name}</td>
                             <td className="px-6 py-4 text-right">
-                            <span className="text-primary font-semibold">{model.inputPrice1M.toFixed(2)}</span>
+                            <span className="text-primary font-semibold">{formatTokenPrice(model.inputPrice1M)}</span>
                             <img 
                               src="/near_icon.png" 
                               alt="NEAR Protocol" 
@@ -254,7 +284,7 @@ export default function PricingPage() {
                             />
                             </td>
                             <td className="px-6 py-4 text-right">
-                            <span className="text-primary font-semibold">{model.outputPrice1M.toFixed(2)}</span>
+                            <span className="text-primary font-semibold">{formatTokenPrice(model.outputPrice1M)}</span>
                             <img 
                               src="/near_icon.png" 
                               alt="NEAR Protocol" 
